@@ -35,7 +35,22 @@ sys_kill(void)
     return -1;
   return kill(pid);
 }
-
+int
+sys_trace(void)
+{
+  int on;
+  struct proc* temp;
+  if(argint(0, &on) < 0)
+    return -1;
+  temp=myproc();
+  if(on)
+   temp->traceEnabled=1;
+  else
+   temp->traceEnabled=0;
+  return temp->n_syscalls;
+  
+	
+}
 int
 sys_getpid(void)
 {

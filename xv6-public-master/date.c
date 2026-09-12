@@ -22,6 +22,9 @@ int main(int argc, char *argv[]) {
 
 	printf(1, "abi - shuold do date here\n");
 	// the syscall shouldve populated the r struct if successul
+	
+	// hour: min: s  month date, year 
+	printf(1, "%d:%d:%d   %d %d, %d \n", r.hour, r.minute, r.second, r.month, r.day, r.year);
 
 
 

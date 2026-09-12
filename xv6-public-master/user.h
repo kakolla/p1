@@ -24,6 +24,7 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int trace(int);
+int date(struct rtcdate*); // should be the ptr to the rtcdate struct
 
 // ulib.c
 int stat(const char*, struct stat*);

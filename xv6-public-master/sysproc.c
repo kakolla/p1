@@ -52,6 +52,18 @@ sys_trace(void)
 	
 }
 int
+sys_date(void)
+{
+// system call code
+	struct rtcdate r; 
+  int size_of_rtcdate_struct = 24; // 6 * 4
+  // get the arg (which is the rtcdate struct)
+  if (argptr(0, (char**) &r ,size_of_rtcdate_struct )) return -1; // fail
+
+  cmostime(&r);
+  return 0;
+   }
+int
 sys_getpid(void)
 {
   return myproc()->pid;

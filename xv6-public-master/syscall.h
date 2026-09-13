@@ -20,5 +20,7 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
+// peeru - sys trace
 #define SYS_trace   22
+// kakolla - sys date
 #define SYS_date   23

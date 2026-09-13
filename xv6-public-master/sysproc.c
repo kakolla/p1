@@ -35,6 +35,7 @@ sys_kill(void)
     return -1;
   return kill(pid);
 }
+// peeru - worked on this syscall below
 int
 sys_trace(void)
 {
@@ -51,6 +52,7 @@ sys_trace(void)
   
 	
 }
+// kakolla - worked on this syscall below
 int
 sys_date(void)
 {

@@ -23,7 +23,9 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+// peeru - trace userspace call
 int trace(int);
+// kakolla - date userspace call
 int date(struct rtcdate*); // should be the ptr to the rtcdate struct
 
 // ulib.c

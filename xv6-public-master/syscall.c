@@ -103,7 +103,9 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+// peeru - added the sys_trace related stuff in this file
 extern int sys_trace(void);
+// kakolla - added the sys_date related stuff in this file
 extern int sys_date(void);
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -130,6 +132,7 @@ static int (*syscalls[])(void) = {
 [SYS_trace]   sys_trace,
 [SYS_date]   sys_date,
 };
+// peeru - introduced this list of syscall
 static const char *syscall_names[] = {
 [SYS_fork]    "fork",   
 [SYS_exit]    "exit",   
@@ -162,6 +165,7 @@ syscall(void)
   int num;
   struct proc *curproc = myproc();
 
+  // peeru - worked on this tracing for the trace syscall
   num = curproc->tf->eax;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
     curproc->n_syscalls++;

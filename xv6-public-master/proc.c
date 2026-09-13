@@ -86,6 +86,7 @@ allocproc(void)
   return 0;
 
 found:
+// peeru - tracing enabled for trace syscall
   p->state = EMBRYO;
   p->pid = nextpid++;
   p->traceEnabled=0;

@@ -23,7 +23,6 @@ int main(int argc, char *argv[]) {
 	}
 	// code to print date-time
 
-	printf(1, "abi - shuold do date here\n");
 	// the syscall shouldve populated the r struct if successul
 	
 	// hour: min: s  month date, year 

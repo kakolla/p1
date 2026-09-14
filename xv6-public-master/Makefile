@@ -79,6 +79,10 @@ OBJCOPY = $(TOOLPREFIX)objcopy
 OBJDUMP = $(TOOLPREFIX)objdump
 CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -Os -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -Wno-unused-but-set-variable  -march=i686 -mno-mmx -mno-sse -mno-sse2 -mno-avx -mno-80387
 CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
+# add these flags if the compiler vrsion supports it (my os runs a newer toolchain vs the class ubuntu vm)
+CFLAGS += $(shell $(CC) -Wno-array-bounds -E -x c /dev/null >/dev/null 2>&1 && echo -Wno-array-bounds)
+CFLAGS += $(shell $(CC) -Wno-infinite-recursion -E -x c /dev/null >/dev/null 2>&1 && echo -Wno-infinite-recursion)
+CFLAGS += $(shell $(CC) -fcf-protection=none -E -x c /dev/null >/dev/null 2>&1 && echo -fcf-protection=none)
 ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 # FreeBSD ld wants ``elf_i386_fbsd''
 LDFLAGS += -m $(shell $(LD) -V | grep elf_i386 2>/dev/null | head -n 1)
